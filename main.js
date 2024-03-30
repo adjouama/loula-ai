@@ -35,7 +35,7 @@ function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
-    height: 600,
+    height: 800,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
@@ -58,8 +58,8 @@ function createWindow () {
 
 function createAPIKeyWindow() {
   const apiKeyWindow = new BrowserWindow({
-    width: 400,
-    height: 200,
+    width: 600,
+    height: 500,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false

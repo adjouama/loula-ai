@@ -1,0 +1,109 @@
+/* styles.css */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #bdc3c7, #2c3e50); /* Gradient from blue to gray */
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: auto; /* In case the content overflows */
+}
+
+#container {
+  position: relative;
+  width: 100%;
+  max-width: 600px; 
+}
+
+.box {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+textarea, button {
+  color: #000000;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  box-sizing: border-box;
+  transition: border-color 0.4s, box-shadow 0.4s;
+}
+
+textarea {
+  resize: none; 
+  height: 100px; 
+}
+
+textarea:focus, button:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+button {
+  background-color: #2980b9; 
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1f648b;
+}
+
+.loader {
+  height: 5px;
+  width: 100%; /* Full width of the #container */
+  background-color: #ddd; /* Base color for the loader background */
+  /* position: absolute; */
+  top: 50%; /* Position it at half the height of the container */
+  left: 0;
+  transform: translateY(-50%); /* Center it vertically */
+  overflow: hidden; /* Ensures the inner bar doesn't go outside the loader */
+}
+
+.loader::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%; /* Start from the left out of sight */
+  height: 100%;
+  width: 100%; /* Full width to cover the loader's area */
+  background-color: #3498db; /* Color of the moving element */
+  animation: moveLoader 1s infinite ease-in-out;
+}
+
+@keyframes moveLoader {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(200%); /* Moves the element from left to right and back */
+  }
+}
+
+/* Content preview styles */
+.content-preview {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  min-height: 150px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  body {
+    padding: 10px;
+  }
+  #container, .box, .content-preview {
+    padding: 15px;
+  }
+}
