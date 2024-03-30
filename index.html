@@ -1,19 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
-    <link href="./styles.css" rel="stylesheet">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+<head>
+<meta charset="UTF-8">
+<title>Content Generator UI</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div id="container">
+    <div class="box">
+      <label for="prompt">Input:</label>
+      <textarea id="prompt" placeholder="The text you want to generate content for." oninput="autoResizeTextarea(this)"></textarea>
+    </div>
 
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-  </body>
+    <div class="box radio-group">
+      <label>Task:</label>
+      <label for="correct">
+        <input type="radio" name="task" id="correct" value="correct" checked>
+        Correct
+      </label>
+      <label for="reply">
+        <input type="radio" name="task" id="reply" value="reply">
+        Reply
+      </label>
+    </div>
+
+    <div class="box action-button">
+      <button id="generate">Generate</button>
+    </div>
+
+    <div id="loader" class="loader" style="display: none;"></div>
+    
+    <div id="preview" class="content-preview">
+      <p>Your AI-generated content will be shown here.</p>
+    </div>
+  </div>
+<script src="renderer.js"></script>
+<script>
+  function autoResizeTextarea(el) {
+    setTimeout(function() {
+      el.style.height = 'auto';
+      el.style.height = el.scrollHeight + 'px';
+    }, 0);
+  }
+</script> 
+</body>
 </html>
