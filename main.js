@@ -4,6 +4,13 @@ const path = require('node:path')
 const Store = require('electron-store');
 const store = new Store();
 // store.clear();
+//Check if it's the first run
+if (store.get('firstRun', true)) {
+  // If it's the first run, clear the store and set 'firstRun' to false
+  store.clear();
+  store.set('firstRun', false);
+}
+
 const { OpenAI } = require('openai');
 
 ipcMain.on('api-key-submitted', (event, apiKey) => {
