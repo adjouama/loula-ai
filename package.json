@@ -1,23 +1,26 @@
 {
-  "name": "electron-quick-start",
-  "version": "1.0.1",
-  "description": "A minimal Electron application",
+  "name": "loula-ai",
+  "version": "1.0.4",
+  "description": "AI Assistant to help you correct your grammar and spelling mistakes and reply to your emails and messages",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "build": {
+    "appId": "com.assistant.loulai",
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "repository": "",
+  "keywords": [],
+  "author": "ZERATUL",
+  "license": "MIT",
   "devDependencies": {
-    "electron": "^29.1.6"
+    "electron": "^29.1.6",
+    "electron-builder": "^24.13.3"
   },
   "dependencies": {
     "electron-store": "^8.2.0",

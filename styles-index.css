@@ -8,7 +8,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
   overflow: auto; /* In case the content overflows */
 }
 
@@ -66,7 +66,7 @@ button:hover {
   top: 50%; /* Position it at half the height of the container */
   left: 0;
   transform: translateY(-50%); /* Center it vertically */
-  overflow: hidden; /* Ensures the inner bar doesn't go outside the loader */
+  overflow: hidden !important; /* Ensures the inner bar doesn't go outside the loader */
 }
 
 .loader::before {

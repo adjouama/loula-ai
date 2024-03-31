@@ -14,6 +14,9 @@ const promptInput = document.getElementById('prompt');
 const loader = document.getElementById('loader');
 const taskCorrectRadio = document.getElementById('correct');
 const taskReplyRadio = document.getElementById('reply');
+const clearButton = document.getElementById('clear-cache');
+
+let lastCtrlPress = 0;
 
 // Listen for form submission
 if (apiFormInput) {
@@ -66,6 +69,11 @@ generateButton.addEventListener('click', async () => {
     }
   });
   
+  clearButton.addEventListener('click', () => {
+    console.log('Clearing cache');
+    ipcRenderer.send('clear-cache');
+  });
+
   ipcRenderer.on('copy-text', (event, text) => {
     document.getElementById('prompt').value = text;
   });

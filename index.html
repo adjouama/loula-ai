@@ -2,11 +2,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Content Generator UI</title>
+<title>Loula AI</title>
 <link rel="stylesheet" type="text/css" href="styles-index.css">
 </head>
 <body>
   <div id="container">
+    <div  class="box">
+      <button id="clear-cache" style="background-color: orange;">Change API key</button>
+    </div>
     <div class="box">
       <label for="prompt">Input:</label>
       <textarea id="prompt" placeholder="The text you want to generate content for." oninput="autoResizeTextarea(this)"></textarea>
@@ -32,6 +35,10 @@
     
     <div id="preview" class="content-preview">
       <p>Your AI-generated content will be shown here.</p>
+    </div>
+    
+    <div style="text-align: center;margin-top: 20px;">
+      <img src="loula-ai-removebg-preview.png" width="80" alt="Logo" class="logo-image">
     </div>
   </div>
 <script src="renderer.js"></script>

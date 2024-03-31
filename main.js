@@ -35,7 +35,7 @@ function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
-    height: 800,
+    height: 1000,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
@@ -139,4 +139,16 @@ ipcMain.handle('generate-draft', async (event, promptText, task) => {
     console.error('Error querying OpenAI:', error);
     return '';
   }
+});
+
+ipcMain.on('clear-cache', (event, arg) => {
+  store.clear();
+  // Your code to clear cache goes here
+  console.log('Cache clearing event received');
+  // Get the current window
+  let currentWindow = BrowserWindow.getFocusedWindow();
+  // Close the current window
+  if (currentWindow) currentWindow.close();
+
+  createAPIKeyWindow();
 });
