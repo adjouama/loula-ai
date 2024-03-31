@@ -1,6 +1,6 @@
 {
   "name": "loula-ai",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "AI Assistant to help you correct your grammar and spelling mistakes and reply to your emails and messages",
   "main": "main.js",
   "scripts": {

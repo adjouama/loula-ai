@@ -111,12 +111,12 @@ ipcMain.handle('generate-draft', async (event, promptText, task) => {
   let messages;
   if (task === "correct") {
     messages = [
-      { "role": "system", "content": "Please initiate the text refinement protocol where you are required to correct and improve any received text inputs for accuracy in grammar, spelling, punctuation, and overall coherence. Ensure that modifications adhere to the syntactical and stylistic norms of the language in which the text is written. This includes but is not limited to English, Spanish, French, German, and Chinese. Maintain the original meaning and intention of the author while enhancing readability and clarity." },
+      { "role": "system", "content": "You are an AI assistant. Your task is to correct/improve texts. Always reply with the corrected texts only. If the text does not require correction, simply reply with [NO CORRECTION NEEDED]. ALWAYS correct in the same language." },
       { "role": "user", "content": promptText }
     ];
   } else if (task === "reply") {
     messages = [
-      { "role": "system", "content": "Please activate the universal response protocol, ensuring to provide a prompt, appropriate, and contextually relevant reply to any incoming messages, regardless of the format they are presented in – be it comments, emails, or simple texts. Always maintain a conversational tone, displaying human-like engagement and empathy. Your responses should reflect thoughtful consideration of the message's content while aligning with the conversational norms of a natural human interaction." },
+      { "role": "system", "content": "You are an AI assistant. Your task is to reply to messages. Be friendly and sound as human. Always reply in the same language of the received text." },
       { "role": "user", "content": promptText }
     ];
   } else {
