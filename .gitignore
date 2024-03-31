@@ -1,2 +1,4 @@
-node_modules
-dist
+# .gitignore
+dist/win-unpacked/
+electron-quick-start-win32-x64/
+dist/*.exe
