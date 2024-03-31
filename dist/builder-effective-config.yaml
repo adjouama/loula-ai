@@ -1,8 +1,0 @@
-directories:
-  output: dist
-  buildResources: build
-appId: com.assistant.loulai
-win:
-  target: nsis
-files: []
-electronVersion: 29.1.6
