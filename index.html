@@ -46,7 +46,15 @@
   function autoResizeTextarea(el) {
     setTimeout(function() {
       el.style.height = 'auto';
-      el.style.height = el.scrollHeight + 'px';
+      let style = window.getComputedStyle(el, null);
+      let maxHeight = parseInt(style.getPropertyValue('max-height'), 10);
+      let scrollHeight = el.scrollHeight;
+      if (scrollHeight > maxHeight) {
+        el.style.overflowY = 'auto';
+        el.style.height = maxHeight + 'px';
+      } else {
+        el.style.height = scrollHeight + 'px';
+      }
     }, 0);
   }
 </script> 

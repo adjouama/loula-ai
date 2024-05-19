@@ -34,7 +34,7 @@ ipcMain.on('api-key-submitted', (event, apiKey) => {
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
+    width: 600,
     height: 1000,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
@@ -130,7 +130,7 @@ ipcMain.handle('generate-draft', async (event, promptText, task) => {
     const completion = await openai.chat.completions.create({
       messages: messages,
       // model: "gpt-4-turbo-preview",
-      model: "gpt-3.5-turbo",
+      model: "gpt-4o",
       max_tokens: 3000
     });
 

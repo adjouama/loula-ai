@@ -39,7 +39,8 @@ textarea, button {
 
 textarea {
   resize: none; 
-  height: 100px; 
+  max-height: 100px; 
+  overflow-y: auto; 
 }
 
 textarea:focus, button:focus {
@@ -106,4 +107,9 @@ button:hover {
   #container, .box, .content-preview {
     padding: 15px;
   }
+}
+
+#preview {
+  overflow-y: auto;
+  height: 200px; /* Adjust this value as needed */
 }
